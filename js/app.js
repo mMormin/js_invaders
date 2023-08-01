@@ -1,3 +1,5 @@
+const slate = document.getElementById("invader");
+
 /* Game menu display function */
 const gameMenu = function () {
   const form = document.getElementById("configuration");
@@ -6,28 +8,31 @@ const gameMenu = function () {
   const input = document.createElement("input");
   input.setAttribute("id", "input");
   input.setAttribute("type", "text");
-  
+
   /* Button Init */
   const button = document.createElement("button");
   button.innerHTML = "GENERATE";
   button.addEventListener("click", onButtonClick);
-  
+
   /* Input and button in DOM */
   form.append(input, button);
 
   /* On button click function */
   function onButtonClick(e) {
-    const test = document.getElementsByClassName("col");
     e.preventDefault();
-    //test.remove();
     let inputValue = document.getElementById("input").value;
-    newBoard(inputValue);
+    newSlate(inputValue);
+    if (slate.firstChild) {
+      while (slate.firstChild) {
+        slate.removeChild(slate.firstChild);
+      }
+      newSlate(inputValue);
+    }
   }
 };
 
-/* New board function */
-function newBoard(size) {
-  const board = document.getElementById("board");
+/* New slate function */
+function newSlate(size) {
   /* Color swap function */
   const colors = [
     "pixel__color-black",
@@ -54,7 +59,7 @@ function newBoard(size) {
     col.classList.add("col");
 
     /* Column in DOM */
-    board.appendChild(col);
+    slate.appendChild(col);
 
     /* Loop to have x = size pixels */
     for (let i = 0; i < size; i++) {
