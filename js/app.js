@@ -1,13 +1,23 @@
+/* Color swap function */
 const slate = document.getElementById("invader");
+const colors = [
+  "pixel__color-black",
+  "pixel__color-grey",
+  "pixel__color-white",
+];
+
+console.log(colors);
 
 /* Game menu display function */
 const gameMenu = function () {
   const form = document.getElementById("configuration");
+  const palette = document.getElementById("palette");
 
   /* Input Init */
   const input = document.createElement("input");
   input.setAttribute("id", "input");
   input.setAttribute("type", "text");
+  input.setAttribute("placeholder", "8");
 
   /* Button Init */
   const button = document.createElement("button");
@@ -29,16 +39,19 @@ const gameMenu = function () {
       newSlate(inputValue);
     }
   }
+
+  for(let i = 0; i < colors.length; i++) {
+    const color = document.createElement("div");
+    color.setAttribute("class", "palette__color");
+    palette.appendChild(color);
+  }
+
 };
 
 /* New slate function */
 function newSlate(size) {
-  /* Color swap function */
-  const colors = [
-    "pixel__color-black",
-    "pixel__color-grey",
-    "pixel__color-white",
-  ];
+  /* Default value if undefined */
+  size = typeof message !== "undefined" ? message : "8";
 
   const colorSwap = function (evt) {
     if (evt.target.classList.contains(colors[0])) {
