@@ -2,11 +2,9 @@
 const slate = document.getElementById("invader");
 const colors = [
   "pixel__color-black",
-  "pixel__color-grey",
-  "pixel__color-white",
+  "pixel__color-blue",
+  "pixel__color-green",
 ];
-
-console.log(colors);
 
 /* Game menu display function */
 const gameMenu = function () {
@@ -40,18 +38,20 @@ const gameMenu = function () {
     }
   }
 
-  for(let i = 0; i < colors.length; i++) {
+  for (let i = 0; i < colors.length; i++) {
     const color = document.createElement("div");
     color.setAttribute("class", "palette__color");
+    color.classList.add(colors[i]);
     palette.appendChild(color);
   }
-
 };
 
 /* New slate function */
 function newSlate(size) {
-  /* Default value if undefined */
-  size = typeof message !== "undefined" ? message : "8";
+  /* Default value if empty */
+  if (size === "") {
+    size = 8;
+  }
 
   const colorSwap = function (evt) {
     if (evt.target.classList.contains(colors[0])) {
