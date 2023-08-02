@@ -54,14 +54,16 @@ function newSlate(size) {
   }
 
   const colorSwap = function (evt) {
-    if (evt.target.classList.contains(colors[0])) {
-      evt.target.classList.replace(colors[0], colors[1]);
-    } else if (evt.target.classList.contains(colors[1])) {
-      evt.target.classList.replace(colors[1], colors[2]);
-    } else if (evt.target.classList.contains(colors[2])) {
-      evt.target.classList.replace(colors[2], colors[0]);
+    const element = evt.target;
+
+    if (element.classList.contains(colors[0])) {
+      element.classList.replace(colors[0], colors[1]);
+    } else if (element.classList.contains(colors[1])) {
+      element.classList.replace(colors[1], colors[2]);
+    } else if (element.classList.contains(colors[2])) {
+      element.classList.replace(colors[2], colors[0]);
     } else {
-      evt.target.classList.add(colors[0]);
+      element.classList.add(colors[0]);
     }
   };
 
