@@ -86,23 +86,25 @@ body {
 }
 
 .pixel {
-  height: 25px;
-  width: 25px;
   background-color: white;
   border: solid 1px #c9c9c9;
   cursor: crosshair;
 }
 
-.pixel__color-black {
+.pixel__color--black {
   background-color: black;
 }
 
-.pixel__color-blue {
+.pixel__color--blue {
   background-color: #0293D3;
 }
 
-.pixel__color-green {
+.pixel__color--green {
   background-color: #79EA83;
+}
+
+.pixel__color--yellow {
+  background-color: orange;
 }
 
 #invader {
@@ -164,7 +166,8 @@ button:hover {
   justify-content: space-evenly;
   align-items: center;
   display: flex;
-  min-width: 130px;
+  padding: 1.5rem 1rem;
+  min-width: 200px;
 }
 
 .palette__color {
@@ -172,5 +175,11 @@ button:hover {
   height: 25px;
   width: 25px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.active-color {
+  box-shadow: rgba(0, 0, 0, 0.678) 0px 1px 4px;
+  height: 30px;
+  width: 30px;
 }
 
